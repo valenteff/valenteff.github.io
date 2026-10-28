@@ -7,23 +7,38 @@ import { site, nav } from '../content/site';
     <a class="brand" href="/">
       <span class="monogram" aria-hidden="true">{site.monogram}</span>
       <span>
-        {site.name}
+        <span class="name">{site.name}</span>
         <small>{site.descriptor}</small>
       </span>
     </a>
-    <nav aria-label="Primary">
+    <nav aria-label="Primary" class="nav-desktop">
       <ul class="nav-links">
         {nav.map((n) => (
-          <li class="hide-mobile"><a href={n.href}>{n.label}</a></li>
+          <li><a href={n.href}>{n.label}</a></li>
         ))}
         <li>
           {site.resumeAvailable ? (
-            <a class="nav-cta" href={site.resumeUrl}>Resume ↗</a>
+            <a class="nav-cta" href={site.resumeUrl}>Résumé (PDF)</a>
           ) : (
             <a class="nav-cta" href="/#contact">Contact</a>
           )}
         </li>
       </ul>
     </nav>
+    <details class="nav-toggle">
+      <summary aria-label="Open navigation menu">Menu</summary>
+      <ul class="nav-mobile-list">
+        {nav.map((n) => (
+          <li><a href={n.href}>{n.label}</a></li>
+        ))}
+        <li>
+          {site.resumeAvailable ? (
+            <a href={site.resumeUrl}>Résumé (PDF)</a>
+          ) : (
+            <a href="/#contact">Contact</a>
+          )}
+        </li>
+      </ul>
+    </details>
   </div>
 </header>

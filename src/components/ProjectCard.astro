@@ -3,15 +3,13 @@ import type { Project } from '../content/projects';
 interface Props { project: Project; }
 const { project } = Astro.props;
 ---
-<a class="project-card" href={`/work/${project.slug}/`}>
-  <div class="card-top">
-    <span class="card-num">{project.number}</span>
-    <span class="card-tag">{project.tag}</span>
-  </div>
-  <h3>{project.title}</h3>
-  <p class="teaser">{project.teaser}</p>
-  <div class="card-bottom">
-    <span class="evidence-tag">{project.evidenceTag}</span>
-    <span class="card-cta">Read case study →</span>
-  </div>
+<a class="work-item" href={`/work/${project.slug}/`}>
+  <span class="work-num" aria-hidden="true">{project.number}</span>
+  <span>
+    <span class="work-tag">{project.tag}</span>
+    <h3 class="work-title">{project.title}</h3>
+    <p class="work-teaser">{project.teaser}</p>
+    <span class="work-meta">{project.evidenceTag} · Read case study</span>
+  </span>
+  <span class="work-arrow" aria-hidden="true">→</span>
 </a>

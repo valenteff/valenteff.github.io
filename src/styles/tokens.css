@@ -1,22 +1,21 @@
-/* Design tokens — "Precision, not spectacle" */
+/* Design tokens — v2 editorial: warm off-white, charcoal, slate-blue */
 :root {
-  --bg: #0B1016;
-  --bg-deep: #070B10;
-  --surface: #111A23;
-  --surface-hover: #17222E;
-  --surface-raised: #192531;
-  --border: #263341;
-  --border-strong: #354658;
-  --text: #EAF0F4;
-  --text-secondary: #AEBCC9;
-  --text-muted: #8193A3;
-  --accent: #75D6C4;
-  --accent-soft: #183D3B;
-  --accent-warm: #D5B989;
-  --focus: #A6E7DA;
-  --max-content: 1160px;
-  --reading-width: 760px;
-  --radius-small: 10px;
-  --radius-card: 18px;
-  --radius-large: 28px;
+  --bg: #FAF8F4;
+  --bg-deep: #F3F0E9;
+  --surface: #FFFFFF;
+  --border: #DCD6CA;
+  --border-strong: #C9C2B4;
+  --text: #23282E;
+  --text-secondary: #4A5158;
+  --text-muted: #646A72;
+  --accent: #3E5C76;          /* slate blue */
+  --accent-strong: #2C4356;
+  --accent-soft: #EDF1F5;
+  --accent-warm: #8A6D3B;     /* muted brass */
+  --focus: #3E5C76;
+  --max-content: 1080px;
+  --reading-width: 700px;
+  --serif: 'Charter', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 }

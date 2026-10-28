@@ -1,11 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
 import StatStrip from '../components/StatStrip.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import ExperienceTimeline from '../components/ExperienceTimeline.astro';
 import ContactCTA from '../components/ContactCTA.astro';
-import WorkflowIllustration from '../components/WorkflowIllustration.astro';
 import { projects } from '../content/projects';
 import { education, languages } from '../content/experience';
 import { site } from '../content/site';
@@ -16,30 +14,28 @@ import { site } from '../content/site';
   description="Mechanical engineer and technical project lead combining operations leadership with AI-assisted workflows, automation, and trading technology. Portfolio, case studies, and contact."
 >
   <section class="hero">
-    <div class="container grid">
-      <div>
-        <p class="eyebrow">Bogotá, Colombia · Remote collaboration</p>
-        <h1>Complex technical work, made clear, testable, and accountable.</h1>
-        <p class="role-line">Technical Project Manager · AI Workflow &amp; Automation Specialist</p>
-        <p class="lead">
-          I'm a mechanical engineer and technical project lead working at the intersection of
-          operations, AI-assisted automation, and trading technology. I turn ambiguous problems
-          into structured requirements, coordinated implementations, measurable checks, and
-          decisions that people can trust.
-        </p>
-        <p class="lead">
-          My background spans engineering-team leadership, risk and process improvement, and
-          hands-on coordination of AI-enabled workflows. I work in English, Portuguese, and Spanish.
-        </p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#work">Explore selected work</a>
-          {site.resumeAvailable
-            ? <a class="btn btn-secondary" href={site.resumeUrl}>View résumé</a>
-            : <a class="btn btn-secondary" href="#contact">Get in touch</a>}
-        </div>
-        <p class="note">Independent project work + corporate engineering and operations experience.</p>
+    <div class="container">
+      <p class="eyebrow">Bogotá, Colombia · Remote collaboration</p>
+      <h1>Complex technical work, made clear, testable, and accountable.</h1>
+      <p class="role-line">Technical Project Manager · AI Workflow &amp; Automation Specialist</p>
+      <p class="lead">
+        I'm a mechanical engineer and technical project lead working at the intersection of
+        operations, AI-assisted automation, and trading technology. I turn ambiguous problems
+        into structured requirements, coordinated implementations, measurable checks, and
+        decisions that people can trust.
+      </p>
+      <p class="lead">
+        My background spans engineering-team leadership, risk and process improvement, and
+        hands-on coordination of AI-enabled workflows. I work in English, Portuguese, and Spanish.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#work">Explore selected work</a>
+        {site.resumeAvailable
+          ? <a class="btn btn-secondary" href={site.resumeUrl}>View résumé</a>
+          : <a class="btn btn-secondary" href="#contact">Get in touch</a>}
       </div>
-      <WorkflowIllustration />
+      <p class="note">Independent project work + corporate engineering and operations experience.</p>
+      <hr class="hero-rule" />
     </div>
   </section>
 
@@ -56,7 +52,7 @@ import { site } from '../content/site';
           case. Each explains my contribution, what actually happened, and the limits of the evidence.
         </p>
       </div>
-      <div class="projects-grid">
+      <div class="work-list">
         {projects.map((p) => <ProjectCard project={p} />)}
       </div>
     </div>
@@ -89,19 +85,10 @@ import { site } from '../content/site';
           <p>Pine Script indicators, backtesting workflows, walk-forward assessment, Monte Carlo/risk evaluation, technical market analysis, and careful distinction between tested results and live readiness.</p>
         </div>
       </div>
-      <div class="tools-list" aria-label="Tools and context">
-        <span class="tools-label">Tools &amp; context (API and programming items reflect integration oversight / AI-assisted implementation):</span>
-        <span class="chip">Hermes</span>
-        <span class="chip">Paperclip</span>
-        <span class="chip">Pine Script / TradingView</span>
-        <span class="chip">Git</span>
-        <span class="chip">SharePoint</span>
-        <span class="chip">SAP</span>
-        <span class="chip">Vercel</span>
-        <span class="chip">Discord</span>
-        <span class="chip">REST APIs / webhooks</span>
-        <span class="chip">JSON / CSV</span>
-      </div>
+      <p class="tools-list">
+        <span class="tools-label">Tools &amp; context — API and programming items reflect integration oversight / AI-assisted implementation:</span>
+        Hermes · Paperclip · Pine Script / TradingView · Git · SharePoint · SAP · Vercel · Discord · REST APIs / webhooks · JSON / CSV
+      </p>
     </div>
   </section>
 
@@ -110,7 +97,7 @@ import { site } from '../content/site';
       <div class="section-head">
         <h2>A practical delivery approach, with review at every important boundary.</h2>
       </div>
-      <div class="process-grid">
+      <div class="process-list">
         <div class="step">
           <span class="step-num">1</span>
           <h3>Frame the problem</h3>
@@ -170,9 +157,8 @@ import { site } from '../content/site';
             </div>
           ))}
         </div>
-        <div class="edu-card">
-          <h3>Languages</h3>
-          <div class="langs" style="margin-top:14px;">
+        <div>
+          <div class="langs">
             {languages.map((l) => (
               <div class="lang-row">
                 <span>{l.lang}</span>
