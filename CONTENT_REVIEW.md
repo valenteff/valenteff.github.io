@@ -52,3 +52,9 @@ Email and LinkedIn remain visible (intentional contact channels).
 1. ~~Secrets scan~~ — ✅ run 27 Oct 2026 (no keys/tokens/private URLs in source or dist)
 2. Owner review of final desktop + mobile screenshots (in `qa/final-*.png`)
 3. Owner authorization to create `valenteff/valenteff.github.io` repo and push
+
+## Backlog — personality/visual richness (non-blocking, per owner 28 Oct 2026)
+
+- Opening message is somewhat generic; portfolio is text-heavy.
+- Add ONE genuine (sanitized) project screenshot OR a professional portrait when available.
+- Must NOT delay job applications. No stock imagery; only real assets.

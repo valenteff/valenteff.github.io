@@ -73,7 +73,7 @@
   .nav-toggle summary {
     list-style: none;
     cursor: pointer;
-    padding: 10px 4px;
+    padding: 8px 4px;
     color: var(--text-secondary);
     font-size: 15px;
     min-height: 44px;
@@ -97,13 +97,13 @@
   .nav-toggle .nav-mobile-list {
     list-style: none;
     margin: 0;
-    padding: 8px 0 18px;
+    padding: 4px 0 12px;
     display: grid;
-    gap: 4px;
+    gap: 2px;
   }
   .nav-toggle .nav-mobile-list a {
     display: block;
-    padding: 12px 4px;
+    padding: 9px 4px;
     min-height: 44px;
     font-size: 17px;
     color: var(--text);
@@ -114,6 +114,12 @@
   .nav-toggle { position: static; width: 100%; }
   .nav-toggle summary { justify-content: flex-end; }
   .nav-toggle[open] > summary { font-size: 0; }
+  .nav-toggle[open] summary::before {
+    width: 16px; height: 16px;
+    background:
+      linear-gradient(45deg, transparent 44%, var(--accent) 44%, var(--accent) 56%, transparent 56%),
+      linear-gradient(-45deg, transparent 44%, var(--accent) 44%, var(--accent) 56%, transparent 56%);
+  }
   .nav-toggle[open] > summary::before { margin-right: 8px; }
   .nav-toggle[open] > summary::after { content: 'Close'; color: var(--accent); font-size: 15px; }
   .site-header .inner { flex-wrap: wrap; }
@@ -405,7 +411,7 @@ section.block.tight { padding: 48px 0; }
 .diagram-panel a { color: var(--accent); }
 /* diagram allowed to pan horizontally on very small screens instead of shrinking to illegibility */
 @media (max-width: 480px) {
-  .diagram-panel img { width: 480px; }
+  .diagram-panel img, .diagram-panel svg { width: 480px; max-width: none; }
   .diagram-panel .scroll-hint { display: block; }
 }
 .diagram-panel .scroll-hint { display: none; font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 6px; }
