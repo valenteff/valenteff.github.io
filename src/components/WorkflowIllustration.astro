@@ -1,0 +1,48 @@
+---
+// Conceptual workflow schematic: Inputs → Spec → Build → Validate → Review → Delivery.
+// Illustrative framework — not a screenshot of a unified system.
+---
+<figure class="hero-diagram">
+  <svg viewBox="0 0 440 300" role="img" aria-label="Conceptual workflow diagram: inputs lead to specification, build, validation, independent review, and delivery, with a human approval gate before output.">
+    <defs>
+      <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#75D6C4"></path>
+      </marker>
+    </defs>
+    <style>
+      .node { fill: #17222E; stroke: #354658; rx: 8; }
+      .nodeLbl { fill: #EAF0F4; font: 600 13px Manrope, sans-serif; }
+      .nodeSub { fill: #8193A3; font: 500 10px 'IBM Plex Mono', monospace; letter-spacing: .08em; }
+      .arrow { stroke: #75D6C4; stroke-width: 1.6; fill: none; }
+      .gate { fill: #183D3B; stroke: #75D6C4; }
+    </style>
+    <g>
+      <rect class="node" x="120" y="8" width="200" height="42" rx="8"></rect>
+      <text class="nodeLbl" x="220" y="27" text-anchor="middle">INPUTS</text>
+      <text class="nodeSub" x="220" y="41" text-anchor="middle">REQUESTS · DATA · TRIGGERS</text>
+      <path class="arrow" d="M220,50 L220,68" marker-end="url(#arr)"></path>
+
+      <rect class="node" x="120" y="70" width="200" height="42" rx="8"></rect>
+      <text class="nodeLbl" x="220" y="89" text-anchor="middle">REQUIREMENTS</text>
+      <text class="nodeSub" x="220" y="103" text-anchor="middle">SCOPE · CRITERIA</text>
+      <path class="arrow" d="M220,112 L220,130" marker-end="url(#arr)"></path>
+
+      <rect class="node" x="120" y="132" width="200" height="42" rx="8"></rect>
+      <text class="nodeLbl" x="220" y="151" text-anchor="middle">AGENT / WORKFLOW</text>
+      <text class="nodeSub" x="220" y="165" text-anchor="middle">ORCHESTRATED EXECUTION</text>
+      <path class="arrow" d="M220,174 L220,192" marker-end="url(#arr)"></path>
+
+      <rect class="node" x="120" y="194" width="200" height="42" rx="8"></rect>
+      <text class="nodeLbl" x="220" y="213" text-anchor="middle">QA GATE</text>
+      <text class="nodeSub" x="220" y="227" text-anchor="middle">VALIDATE · VERIFY SOURCES</text>
+      <path class="arrow" d="M220,236 L220,254" marker-end="url(#arr)"></path>
+
+      <rect class="gate" x="105" y="256" width="230" height="38" rx="19"></rect>
+      <text class="nodeLbl" x="220" y="279" text-anchor="middle" fill="#A6E7DA">HUMAN APPROVAL → OUTPUT</text>
+
+      <path class="arrow" d="M320,215 C380,215 380,168 326,168" marker-end="url(#arr)" stroke-dasharray="4 4"></path>
+      <text class="nodeSub" x="392" y="196" text-anchor="middle" transform="rotate(90 392 196)">REVISE / REJECT</text>
+    </g>
+  </svg>
+  <figcaption>CONCEPTUAL FRAMEWORK — NOT A SYSTEM SCREENSHOT</figcaption>
+</figure>

@@ -1,0 +1,18 @@
+---
+interface Props {
+  num: string;
+  title: string;
+  status: string;
+  lead: string;
+}
+const { num, title, status, lead } = Astro.props;
+---
+<div class="case-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="/">Work</a> / <a href="/#work">Selected work</a> / {title}</p>
+    <span class="case-status">CASE STUDY {num} · {status}</span>
+    <h1>{title}</h1>
+    <p class="lead">{lead}</p>
+    <slot />
+  </div>
+</div>

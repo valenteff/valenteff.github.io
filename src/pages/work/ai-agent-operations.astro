@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyHeader from '../../components/CaseStudyHeader.astro';
+import EvidencePanel from '../../components/EvidencePanel.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+
+const facts = [
+  { num: '3', lbl: 'Distinct private operations' },
+  { num: '21', lbl: 'Configured agent roles in the 19 Oct 2026 internal inventory' },
+  { num: '217', lbl: 'Recorded issues — not released product features' },
+  { num: '122', lbl: 'Recorded AI-CEO decision documents — not human employees or customer deliverables' },
+];
+---
+
+<BaseLayout
+  title="Making multi-agent work accountable — Fabio Valente"
+  description="Case study: a governed Paperclip + Hermes environment with scoped agent responsibilities, independent review, documented decisions, and approval gates."
+>
+  <CaseStudyHeader
+    num="01"
+    title="Making multi-agent work accountable"
+    status="AI WORKFLOWS / OPERATIONAL PRIVATE ENVIRONMENT"
+    lead="Multiple AI workers can produce a lot of activity without producing accountable work. I designed and operated a private Paperclip and Hermes environment to make responsibilities, handoffs, quality review, and authorization explicit."
+  >
+    <div class="facts-row">
+      {facts.map((f) => (
+        <div class="fact">
+          <div class="num">{f.num}</div>
+          <div class="lbl">{f.lbl}</div>
+        </div>
+      ))}
+    </div>
+  </CaseStudyHeader>
+
+  <div class="container case-body">
+    <div class="prose">
+      <h2>Context and problem</h2>
+      <p>
+        A multi-agent environment needs safeguards against duplicate missions, unclear ownership,
+        recursive task generation, excessive model usage, and self-approved outputs. The challenge
+        was not to maximize the agent count; it was to make specialized roles useful, reviewable,
+        and bounded.
+      </p>
+
+      <h2>What was designed and operated</h2>
+      <ol>
+        <li>Separate workstreams for research and commercial/operational tasks.</li>
+        <li>Defined agent roles, mission briefs, task ownership, written handoffs, and execution constraints.</li>
+        <li>A task-control layer paired with an AI execution gateway and event-driven routing.</li>
+        <li>Separation between worker execution, reviewing, and approval.</li>
+        <li>Approval boundaries for spending, external publishing, financial actions, and any other consequential step.</li>
+        <li>Documented issues, decision records, QA checks, exceptions, and human intervention paths.</li>
+      </ol>
+
+      <div class="diagram-panel">
+        <svg viewBox="0 0 640 470" role="img" aria-label="Governance diagram: incoming request flows through scoped mission, task coordination in Paperclip, execution via the Hermes gateway, specialist AI workers, independent QA review, human approval for consequential actions, and a documented outcome. A side route lets QA send work back for revision or rejection.">
+          <defs>
+            <marker id="arr1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#75D6C4"></path>
+            </marker>
+          </defs>
+          <style>
+            .n { fill:#17222E; stroke:#354658; }
+            .g { fill:#183D3B; stroke:#75D6C4; }
+            .w { fill:#25211a; stroke:#D5B989; }
+            .t { fill:#EAF0F4; font:600 13px Manrope,sans-serif; }
+            .s { fill:#8193A3; font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.08em; }
+            .a { stroke:#75D6C4; stroke-width:1.6; fill:none; }
+          </style>
+          <rect class="n" x="220" y="10" width="200" height="44" rx="8"></rect>
+          <text class="t" x="320" y="30" text-anchor="middle">Incoming request / trigger</text>
+          <text class="s" x="320" y="45" text-anchor="middle">EVENT-DRIVEN</text>
+          <path class="a" d="M320,54 L320,72" marker-end="url(#arr1)"></path>
+
+          <rect class="n" x="220" y="74" width="200" height="44" rx="8"></rect>
+          <text class="t" x="320" y="94" text-anchor="middle">Scoped mission</text>
+          <text class="s" x="320" y="109" text-anchor="middle">ACCEPTANCE CRITERIA</text>
+          <path class="a" d="M320,118 L320,136" marker-end="url(#arr1)"></path>
+
+          <rect class="n" x="220" y="138" width="200" height="44" rx="8"></rect>
+          <text class="t" x="320" y="158" text-anchor="middle">Task coordination</text>
+          <text class="s" x="320" y="173" text-anchor="middle">PAPERCLIP</text>
+          <path class="a" d="M320,182 L320,200" marker-end="url(#arr1)"></path>
+
+          <rect class="n" x="220" y="202" width="200" height="44" rx="8"></rect>
+          <text class="t" x="320" y="222" text-anchor="middle">Agent gateway</text>
+          <text class="s" x="320" y="237" text-anchor="middle">HERMES</text>
+          <path class="a" d="M320,246 L320,264" marker-end="url(#arr1)"></path>
+
+          <rect class="n" x="220" y="266" width="200" height="44" rx="8"></rect>
+          <text class="t" x="320" y="286" text-anchor="middle">Specialist AI workers</text>
+          <text class="s" x="320" y="301" text-anchor="middle">SCOPED ROLES</text>
+          <path class="a" d="M320,310 L320,328" marker-end="url(#arr1)"></path>
+
+          <rect class="n" x="220" y="330" width="200" height="44" rx="8"></rect>
+          <text class="t" x="320" y="350" text-anchor="middle">Independent reviewer / QA</text>
+          <text class="s" x="320" y="365" text-anchor="middle">SEPARATE FROM WORKERS</text>
+          <path class="a" d="M320,374 L320,392" marker-end="url(#arr1)"></path>
+
+          <rect class="w" x="220" y="394" width="200" height="40" rx="20"></rect>
+          <text class="t" x="320" y="418" text-anchor="middle" fill="#E4CD9E">Human approval [consequential]</text>
+          <path class="a" d="M320,434 L320,450" marker-end="url(#arr1)" display="none"></path>
+
+          <text class="t" x="320" y="462" text-anchor="middle" font-size="12">Documented outcome + audit record</text>
+
+          <path class="a" d="M420,352 C500,352 500,160 424,160" stroke-dasharray="4 4" marker-end="url(#arr1)"></path>
+          <text class="s" x="505" y="260" text-anchor="middle" transform="rotate(90 505 260)">REVISE / REJECT → TASK COORDINATION</text>
+        </svg>
+        <p class="caption">CONCEPTUAL, SANITIZED WORKFLOW</p>
+      </div>
+
+      <h2>My role</h2>
+      <p>
+        I defined the operating model, agent instructions, mission requirements, authorization
+        gates, escalation paths, and acceptance criteria. I reviewed outputs, troubleshot workflow
+        issues, coordinated changes, and approved consequential decisions. AI agents produced
+        implementation code and some infrastructure fixes; I am not claiming to have independently
+        authored all of that code.
+      </p>
+
+      <h2>Observed result</h2>
+      <p>
+        The 19 October 2026 internal audit showed 21 configured roles across three operations,
+        alongside task/issue records and decision documents. It demonstrates a structured private
+        operating model and an audit trail—not enterprise-level uptime, scale, or a claim that
+        every agent role continuously executed production work.
+      </p>
+
+      <h2>What I would improve</h2>
+      <p>
+        Simplify role boundaries further where jobs overlap, formalize failure telemetry, track the
+        useful-output-to-cost ratio, and reduce operational complexity without sacrificing review
+        or safety.
+      </p>
+
+      <div class="limits">
+        <h3>Important boundaries / status</h3>
+        <p>
+          Private, single-machine, founder-operated environment under direct supervision. Not
+          independently audited enterprise infrastructure; not a high-availability service; no
+          autonomous authority to spend, contact outsiders, or execute real-capital trades.
+        </p>
+      </div>
+
+      <h2>Evidence</h2>
+      <figure class="diagram-panel" style="background:#F5F4F1;">
+        <img
+          src="/assets/evidence/workflow-architecture.png"
+          alt="Sanitized conceptual AI-assisted workflow architecture: human owner defines requirements, Paperclip tracks issues and approval gates, Hermes routes AI execution, agent teams research/build/QA, artifacts are produced, human approval authorizes deploy. Cross-cutting controls include private access, structured records, and documented limitations."
+          width="2250"
+          height="1200"
+          loading="eager"
+          style="border-radius:8px;"
+        />
+        <p class="caption" style="color:#5a6470;">
+          SANITIZED CONCEPTUAL VIEW — PORTFOLIO ABSTRACTION, NOT A FULL NETWORK TOPOLOGY
+        </p>
+      </figure>
+      <p style="font-size:14px;color:var(--text-muted);">
+        This architecture summary was prepared for portfolio use and explicitly labeled as a
+        sanitized abstraction. Source screenshots of the live private environment are not
+        published; verified internal artifacts are available upon request.
+      </p>
+    </div>
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="/work/research-automation/">Next: Turning recurring research into a verifiable workflow →</a>
+      <a href="/#work">← Back to selected work</a>
+    </nav>
+  </div>
+
+  <ContactCTA />
+</BaseLayout>

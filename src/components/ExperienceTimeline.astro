@@ -1,0 +1,13 @@
+---
+import { roles } from '../content/experience';
+---
+<div class="timeline">
+  {roles.map((r) => (
+    <div class="timeline-item">
+      <span class="dates">{r.dates}</span>
+      <h3>{r.title}</h3>
+      <div class="org">{r.org}</div>
+      <p>{r.desc}</p>
+    </div>
+  ))}
+</div>

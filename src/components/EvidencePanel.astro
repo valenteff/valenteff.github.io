@@ -1,0 +1,9 @@
+---
+interface Props { title?: string; }
+const { title = 'Evidence' } = Astro.props;
+---
+<aside class="evidence-note" aria-label={title}>
+  <strong>{title}:</strong> Conceptual summary based on audited private configuration; source
+  screenshots and internal records are not published. Verified internal artifacts are available
+  upon request.
+</aside>

@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import StatStrip from '../components/StatStrip.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import WorkflowIllustration from '../components/WorkflowIllustration.astro';
+import { projects } from '../content/projects';
+import { education, languages } from '../content/experience';
+import { site } from '../content/site';
+---
+
+<BaseLayout
+  title="Fabio Valente — Technical Project Manager & AI Workflow Specialist"
+  description="Mechanical engineer and technical project lead combining operations leadership with AI-assisted workflows, automation, and trading technology. Portfolio, case studies, and contact."
+>
+  <section class="hero">
+    <div class="container grid">
+      <div>
+        <p class="eyebrow">Bogotá, Colombia · Remote collaboration</p>
+        <h1>Complex technical work, made clear, testable, and accountable.</h1>
+        <p class="role-line">Technical Project Manager · AI Workflow &amp; Automation Specialist</p>
+        <p class="lead">
+          I'm a mechanical engineer and technical project lead working at the intersection of
+          operations, AI-assisted automation, and trading technology. I turn ambiguous problems
+          into structured requirements, coordinated implementations, measurable checks, and
+          decisions that people can trust.
+        </p>
+        <p class="lead">
+          My background spans engineering-team leadership, risk and process improvement, and
+          hands-on coordination of AI-enabled workflows. I work in English, Portuguese, and Spanish.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#work">Explore selected work</a>
+          {site.resumeAvailable
+            ? <a class="btn btn-secondary" href={site.resumeUrl}>View résumé</a>
+            : <a class="btn btn-secondary" href="#contact">Get in touch</a>}
+        </div>
+        <p class="note">Independent project work + corporate engineering and operations experience.</p>
+      </div>
+      <WorkflowIllustration />
+    </div>
+  </section>
+
+  <StatStrip />
+
+  <section class="block" id="work">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects where the process matters as much as the output.</h2>
+        <p class="intro">
+          The examples below focus on system design, operational workflows, validation, and delivery
+          discipline. They include private, founder-operated systems and a historical corporate
+          case. Each explains my contribution, what actually happened, and the limits of the evidence.
+        </p>
+      </div>
+      <div class="projects-grid">
+        {projects.map((p) => <ProjectCard project={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="approach" style="background: var(--bg-deep); border-block: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2>Four capabilities that travel across industries.</h2>
+      </div>
+      <div class="caps-grid">
+        <div class="cap">
+          <span class="cap-num">01</span>
+          <h3>Workflow design &amp; orchestration</h3>
+          <p>Requirements discovery, process mapping, agent role design, task handoffs, scheduled and event-driven execution, exception handling, and human-in-the-loop approvals.</p>
+        </div>
+        <div class="cap">
+          <span class="cap-num">02</span>
+          <h3>Technical delivery &amp; validation</h3>
+          <p>Acceptance criteria, functional checks, source verification, release reviews, documentation, troubleshooting, and review of AI-assisted implementations.</p>
+        </div>
+        <div class="cap">
+          <span class="cap-num">03</span>
+          <h3>Engineering operations &amp; leadership</h3>
+          <p>Multidisciplinary coordination, team management, supplier relationships, operational KPIs, risk evaluation, and process improvement.</p>
+        </div>
+        <div class="cap">
+          <span class="cap-num">04</span>
+          <h3>Financial-market technology</h3>
+          <p>Pine Script indicators, backtesting workflows, walk-forward assessment, Monte Carlo/risk evaluation, technical market analysis, and careful distinction between tested results and live readiness.</p>
+        </div>
+      </div>
+      <div class="tools-list" aria-label="Tools and context">
+        <span class="tools-label">Tools &amp; context (API and programming items reflect integration oversight / AI-assisted implementation):</span>
+        <span class="chip">Hermes</span>
+        <span class="chip">Paperclip</span>
+        <span class="chip">Pine Script / TradingView</span>
+        <span class="chip">Git</span>
+        <span class="chip">SharePoint</span>
+        <span class="chip">SAP</span>
+        <span class="chip">Vercel</span>
+        <span class="chip">Discord</span>
+        <span class="chip">REST APIs / webhooks</span>
+        <span class="chip">JSON / CSV</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="how-i-work">
+    <div class="container">
+      <div class="section-head">
+        <h2>A practical delivery approach, with review at every important boundary.</h2>
+      </div>
+      <div class="process-grid">
+        <div class="step">
+          <span class="step-num">1</span>
+          <h3>Frame the problem</h3>
+          <p>Understand the user, desired outcome, constraints, risks, and definition of done.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <h3>Specify the workflow</h3>
+          <p>Convert needs into tasks, roles, interfaces, edge cases, measurable acceptance criteria, and handoff rules.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <h3>Coordinate implementation</h3>
+          <p>Use appropriate tools and AI-assisted engineering while maintaining scope and clear ownership.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <h3>Validate the evidence</h3>
+          <p>Check behavior, sources, reproducibility, failure modes, and independent review where warranted.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">5</span>
+          <h3>Decide and document</h3>
+          <p>Ship when acceptance criteria are met; pause or reject when evidence is insufficient.</p>
+        </div>
+      </div>
+      <div class="disclosure">
+        <strong>Honest technical disclosure:</strong> I work hands-on with Pine Script. For broader
+        Python, TypeScript, and C# implementations, my contribution is primarily specification,
+        AI-assisted development coordination, testing, and review—not a claim of independently
+        authoring every line of code.
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="container">
+      <div class="section-head">
+        <h2>Engineering foundations, evolving technical practice.</h2>
+      </div>
+      <ExperienceTimeline />
+    </div>
+  </section>
+
+  <section class="block tight" id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>Education &amp; languages</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-cards">
+          {education.map((e) => (
+            <div class="edu-card">
+              <h3>{e.school}</h3>
+              <span class="dates">{e.dates}</span>
+              <p>{e.what}</p>
+            </div>
+          ))}
+        </div>
+        <div class="edu-card">
+          <h3>Languages</h3>
+          <div class="langs" style="margin-top:14px;">
+            {languages.map((l) => (
+              <div class="lang-row">
+                <span>{l.lang}</span>
+                <span class="lvl">{l.lvl}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactCTA />
+</BaseLayout>

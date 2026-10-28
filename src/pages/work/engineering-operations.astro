@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyHeader from '../../components/CaseStudyHeader.astro';
+import EvidencePanel from '../../components/EvidencePanel.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+
+const facts = [
+  { num: '48', lbl: 'People led (São Martinho, 2015–2017)' },
+  { num: '~400', lbl: 'Agricultural vehicles and machines served' },
+  { num: '2018–21', lbl: 'Risk engineer at SBS Seguros Colombia' },
+  { num: '2', lbl: 'Distinct roles, explicitly labeled — not one employer' },
+];
+---
+
+<BaseLayout
+  title="Coordinating high-stakes operational work — Fabio Valente"
+  description="Case study: leading a 48-person agricultural maintenance operation and improving engineering follow-up practices through a SharePoint-based tracking workflow."
+>
+  <CaseStudyHeader
+    num="04"
+    title="Coordinating high-stakes operational work"
+    status="OPERATIONS LEADERSHIP / HISTORICAL CORPORATE EXPERIENCE"
+    lead="Two distinct, explicitly labeled roles showing the progression from industrial field operations to engineering process design. These results did not occur at one employer."
+  >
+    <div class="facts-row">
+      {facts.map((f) => (
+        <div class="fact">
+          <div class="num" style="font-size:24px;">{f.num}</div>
+          <div class="lbl">{f.lbl}</div>
+        </div>
+      ))}
+    </div>
+  </CaseStudyHeader>
+
+  <div class="container case-body">
+    <div class="prose">
+      <h2>Part A — São Martinho / Usina Santa Cruz, Brazil (2015–2017)</h2>
+      <p>
+        As an agricultural maintenance supervisor, I led a 48-person operation serving approximately
+        400 agricultural vehicles and machines. The work required coordinating maintenance
+        priorities, people, suppliers, and equipment readiness.
+      </p>
+      <ul>
+        <li>Led a team of approximately 48 people.</li>
+        <li>Planned preventive, predictive, and corrective maintenance work.</li>
+        <li>Coordinated suppliers and operational priorities.</li>
+        <li>Monitored KPIs and supported equipment availability.</li>
+      </ul>
+      <p>
+        <em>
+          Outcome: experience managing substantial operational complexity with real equipment,
+          teams, and delivery constraints. No uptime percentage, cost-saving number, or
+          accident record is claimed.
+        </em>
+      </p>
+
+      <h2>Part B — SBS Seguros Colombia, Bogotá (2018–2021)</h2>
+      <p>
+        As a risk engineer, I coordinated technical assessment work and implemented a
+        SharePoint-based workflow to track engineering activities, client recommendations,
+        follow-ups, and corrective actions.
+      </p>
+      <ul>
+        <li>Designed and implemented the SharePoint tracking workflow.</li>
+        <li>Coordinated clients, contractors, and specialist providers.</li>
+        <li>Structured recommendations, follow-ups, and issue/action status.</li>
+        <li>Improved visibility and reporting around technical work.</li>
+      </ul>
+
+      <div class="diagram-panel">
+        <svg viewBox="0 0 680 170" role="img" aria-label="Two independent conceptual panels. Panel A: equipment flows to maintenance priority, then team and supplier, then KPI and follow-up. Panel B: risk visit leads to findings, recommendations, a SharePoint log, owner and action, and follow-up or closure.">
+          <style>
+            .n4 { fill:#17222E; stroke:#354658; }
+            .t4 { fill:#EAF0F4; font:600 11.5px Manrope,sans-serif; }
+            .s4 { fill:#8193A3; font:500 9px 'IBM Plex Mono',monospace; letter-spacing:.05em; }
+            .a4 { stroke:#75D6C4; stroke-width:1.4; fill:none; }
+            .p4 { fill:#75D6C4; font:700 10px 'IBM Plex Mono',monospace; letter-spacing:.1em; }
+          </style>
+          <defs>
+            <marker id="arr4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#75D6C4"></path>
+            </marker>
+          </defs>
+          <text class="p4" x="20" y="22">A · FIELD OPERATIONS (2015–2017)</text>
+          <rect class="n4" x="20" y="34" width="120" height="44" rx="8"></rect>
+          <text class="t4" x="80" y="53" text-anchor="middle">Equipment</text>
+          <text class="s4" x="80" y="68" text-anchor="middle">~400 MACHINES</text>
+          <path class="a4" d="M140,56 L156,56" marker-end="url(#arr4)"></path>
+          <rect class="n4" x="158" y="34" width="140" height="44" rx="8"></rect>
+          <text class="t4" x="228" y="53" text-anchor="middle">Maintenance priority</text>
+          <text class="s4" x="228" y="68" text-anchor="middle">PREV / PRED / CORR</text>
+          <path class="a4" d="M298,56 L314,56" marker-end="url(#arr4)"></path>
+          <rect class="n4" x="316" y="34" width="140" height="44" rx="8"></rect>
+          <text class="t4" x="386" y="53" text-anchor="middle">Team + suppliers</text>
+          <text class="s4" x="386" y="68" text-anchor="middle">48 PEOPLE</text>
+          <path class="a4" d="M456,56 L472,56" marker-end="url(#arr4)"></path>
+          <rect class="n4" x="474" y="34" width="140" height="44" rx="8"></rect>
+          <text class="t4" x="544" y="53" text-anchor="middle">KPI + follow-up</text>
+          <text class="s4" x="544" y="68" text-anchor="middle">AVAILABILITY</text>
+
+          <text class="p4" x="20" y="108">B · ENGINEERING PROCESS (2018–2021)</text>
+          <rect class="n4" x="20" y="120" width="104" height="40" rx="8"></rect>
+          <text class="t4" x="72" y="137" text-anchor="middle">Risk visit</text>
+          <text class="s4" x="72" y="151" text-anchor="middle">FIELD</text>
+          <path class="a4" d="M124,140 L138,140" marker-end="url(#arr4)"></path>
+          <rect class="n4" x="140" y="120" width="100" height="40" rx="8"></rect>
+          <text class="t4" x="190" y="137" text-anchor="middle">Findings</text>
+          <text class="s4" x="190" y="151" text-anchor="middle">TECHNICAL</text>
+          <path class="a4" d="M240,140 L254,140" marker-end="url(#arr4)"></path>
+          <rect class="n4" x="256" y="120" width="104" height="40" rx="8"></rect>
+          <text class="t4" x="308" y="137" text-anchor="middle">SharePoint log</text>
+          <text class="s4" x="308" y="151" text-anchor="middle">TRACKING</text>
+          <path class="a4" d="M360,140 L374,140" marker-end="url(#arr4)"></path>
+          <rect class="n4" x="376" y="120" width="104" height="40" rx="8"></rect>
+          <text class="t4" x="428" y="137" text-anchor="middle">Owner + action</text>
+          <text class="s4" x="428" y="151" text-anchor="middle">ASSIGNED</text>
+          <path class="a4" d="M480,140 L494,140" marker-end="url(#arr4)"></path>
+          <rect class="n4" x="496" y="120" width="118" height="40" rx="8"></rect>
+          <text class="t4" x="555" y="137" text-anchor="middle">Follow-up / closure</text>
+          <text class="s4" x="555" y="151" text-anchor="middle">VERIFIED</text>
+        </svg>
+        <p class="caption">CONCEPTUAL SUMMARIES — NOT IMAGES FROM FORMER EMPLOYERS' SYSTEMS</p>
+      </div>
+
+      <div class="limits">
+        <h3>Limits</h3>
+        <p>
+          Historical employer work; no confidential internal documents or copyrighted corporate
+          branding are used without permission. These are two distinct roles at two distinct
+          employers, labeled separately on purpose.
+        </p>
+      </div>
+
+      <EvidencePanel title="Evidence" />
+    </div>
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="/work/research-validation/">← Previous: Designing research to reject weak conclusions</a>
+      <a href="/#work">Back to selected work</a>
+    </nav>
+  </div>
+
+  <ContactCTA />
+</BaseLayout>

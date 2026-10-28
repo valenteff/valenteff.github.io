@@ -1,0 +1,29 @@
+---
+import { site, nav } from '../content/site';
+---
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/">
+      <span class="monogram" aria-hidden="true">{site.monogram}</span>
+      <span>
+        {site.name}
+        <small>{site.descriptor}</small>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        {nav.map((n) => (
+          <li class="hide-mobile"><a href={n.href}>{n.label}</a></li>
+        ))}
+        <li>
+          {site.resumeAvailable ? (
+            <a class="nav-cta" href={site.resumeUrl}>Resume ↗</a>
+          ) : (
+            <a class="nav-cta" href="/#contact">Contact</a>
+          )}
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found — Fabio Valente"
+  description="The page you are looking for does not exist."
+>
+  <div class="container pnf">
+    <h1>404</h1>
+    <p>That page doesn't exist. Try the homepage or the selected work instead.</p>
+    <div class="btn-row" style="display:flex;justify-content:center;gap:14px;margin-top:28px;">
+      <a class="btn btn-primary" href="/">Go home</a>
+      <a class="btn btn-secondary" href="/#work">Selected work</a>
+    </div>
+  </div>
+</BaseLayout>

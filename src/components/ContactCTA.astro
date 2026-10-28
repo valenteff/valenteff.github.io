@@ -1,0 +1,23 @@
+---
+import { site } from '../content/site';
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Have a technical challenge that needs structured execution?</h2>
+    <p>
+      I'm interested in remote roles involving AI workflows, technical project delivery, business
+      automation, technical operations, and financial technology. If my background looks relevant
+      to your team, I'd be glad to talk.
+    </p>
+    <div class="btn-row" style="display:flex;flex-wrap:wrap;gap:14px;">
+      <a class="btn btn-primary" href={`mailto:${site.email}`}>Email me</a>
+      <a class="btn btn-secondary" href={site.linkedin} target="_blank" rel="noopener">Connect on LinkedIn</a>
+      {site.resumeAvailable && <a class="btn btn-secondary" href={site.resumeUrl}>View résumé</a>}
+      <a class="btn btn-secondary" href={site.github} target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-secondary" href={site.youtube} target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyHeader from '../../components/CaseStudyHeader.astro';
+import EvidencePanel from '../../components/EvidencePanel.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+
+const facts = [
+  { num: '12', lbl: 'Consecutive dated weekly reports through 19 October 2026' },
+  { num: '127', lbl: 'Structured history records in the audited log' },
+  { num: '18', lbl: 'Individually verified opportunities in the most recent audited cycle' },
+  { num: '1', lbl: 'Beneficiary — not a commercial multi-tenant deployment' },
+];
+---
+
+<BaseLayout
+  title="Turning recurring research into a verifiable workflow — Fabio Valente"
+  description="Case study: scheduled opportunity-research automation with profile-based filters, source verification, structured history, and weekly reporting."
+>
+  <CaseStudyHeader
+    num="02"
+    title="Turning recurring research into a verifiable workflow"
+    status="BUSINESS AUTOMATION / OPERATIONAL PRIVATE WORKFLOW"
+    lead="A recurring research task combined searching, screening, verifying sources, maintaining history, and reporting useful findings. I designed the workflow requirements and operated an AI-assisted research assistant to perform the repeatable work and make uncertainty visible."
+  >
+    <div class="facts-row">
+      {facts.map((f) => (
+        <div class="fact">
+          <div class="num">{f.num}</div>
+          <div class="lbl">{f.lbl}</div>
+        </div>
+      ))}
+    </div>
+  </CaseStudyHeader>
+
+  <div class="container case-body">
+    <div class="prose">
+      <h2>Problem</h2>
+      <p>
+        Manual opportunity screening was repetitive, time-sensitive, and prone to duplication. A
+        useful automation needed to remember past findings, enforce eligibility and compensation
+        filters, check links and source claims, and distinguish inaccessible pages from verified
+        openings.
+      </p>
+
+      <h2>My role</h2>
+      <p>
+        I defined the beneficiary profile, language and compensation filters, acceptance criteria,
+        report format, source-verification rules, and operational review process. I monitored the
+        output and continuity. AI agents authored the underlying scripts and executed source
+        searches.
+      </p>
+
+      <h2>Workflow</h2>
+      <ol>
+        <li>Scheduled weekly trigger.</li>
+        <li>Load stored profile and previous-history entries.</li>
+        <li>Discover candidate opportunities using configured sources.</li>
+        <li>Filter on relevant role, location/eligibility, compensation when available, and duplicates.</li>
+        <li>Verify direct source pages individually; mark failures and inaccessible pages.</li>
+        <li>Write updated CSV/history.</li>
+        <li>Generate an actionable, dated report.</li>
+        <li>Deliver to Discord; record issues and the next cycle's state.</li>
+      </ol>
+
+      <div class="diagram-panel">
+        <svg viewBox="0 0 680 210" role="img" aria-label="Workflow diagram: schedule loads profile and history, discovers candidates, filters, verifies sources, records results, and reports to Discord. Unverified or access-blocked items branch separately instead of being counted as verified.">
+          <defs>
+            <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#75D6C4"></path>
+            </marker>
+          </defs>
+          <style>
+            .n2 { fill:#17222E; stroke:#354658; }
+            .b2 { fill:#2a1f14; stroke:#D5B989; }
+            .t2 { fill:#EAF0F4; font:600 12.5px Manrope,sans-serif; }
+            .s2 { fill:#8193A3; font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.06em; }
+            .a2 { stroke:#75D6C4; stroke-width:1.5; fill:none; }
+          </style>
+          <rect class="n2" x="10" y="30" width="90" height="52" rx="8"></rect>
+          <text class="t2" x="55" y="51" text-anchor="middle">Schedule</text>
+          <text class="s2" x="55" y="66" text-anchor="middle">WEEKLY</text>
+          <path class="a2" d="M100,56 L118,56" marker-end="url(#arr2)"></path>
+
+          <rect class="n2" x="120" y="30" width="100" height="52" rx="8"></rect>
+          <text class="t2" x="170" y="51" text-anchor="middle">Profile</text>
+          <text class="s2" x="170" y="66" text-anchor="middle">+ HISTORY</text>
+          <path class="a2" d="M220,56 L238,56" marker-end="url(#arr2)"></path>
+
+          <rect class="n2" x="240" y="30" width="90" height="52" rx="8"></rect>
+          <text class="t2" x="285" y="51" text-anchor="middle">Discover</text>
+          <text class="s2" x="285" y="66" text-anchor="middle">SOURCES</text>
+          <path class="a2" d="M330,56 L348,56" marker-end="url(#arr2)"></path>
+
+          <rect class="n2" x="350" y="30" width="86" height="52" rx="8"></rect>
+          <text class="t2" x="393" y="51" text-anchor="middle">Filter</text>
+          <text class="s2" x="393" y="66" text-anchor="middle">ELIGIBILITY</text>
+          <path class="a2" d="M436,56 L454,56" marker-end="url(#arr2)"></path>
+
+          <rect class="n2" x="456" y="30" width="90" height="52" rx="8"></rect>
+          <text class="t2" x="501" y="51" text-anchor="middle">Verify</text>
+          <text class="s2" x="501" y="66" text-anchor="middle">SOURCE PAGES</text>
+          <path class="a2" d="M546,56 L564,56" marker-end="url(#arr2)"></path>
+
+          <rect class="n2" x="566" y="4" width="104" height="48" rx="8"></rect>
+          <text class="t2" x="618" y="24" text-anchor="middle">Record</text>
+          <text class="s2" x="618" y="39" text-anchor="middle">CSV HISTORY</text>
+          <path class="a2" d="M618,52 L618,66" marker-end="url(#arr2)" display="none"></path>
+
+          <rect class="n2" x="566" y="62" width="104" height="48" rx="8"></rect>
+          <text class="t2" x="618" y="82" text-anchor="middle">Report</text>
+          <text class="s2" x="618" y="97" text-anchor="middle">DATED, ACTIONABLE</text>
+
+          <rect class="n2" x="566" y="130" width="104" height="44" rx="8"></rect>
+          <text class="t2" x="618" y="149" text-anchor="middle">Discord</text>
+          <text class="s2" x="618" y="163" text-anchor="middle">DELIVERY</text>
+          <path class="a2" d="M618,110 L618,128" marker-end="url(#arr2)"></path>
+
+          <path class="a2" d="M501,82 C501,150 560,152 564,152" stroke-dasharray="4 4" marker-end="url(#arr2)"></path>
+          <rect class="b2" x="380" y="130" width="170" height="44" rx="8"></rect>
+          <text class="t2" x="465" y="149" text-anchor="middle" fill="#E4CD9E">Unverified / access blocked</text>
+          <text class="s2" x="465" y="163" text-anchor="middle">MARKED — NOT COUNTED AS VERIFIED</text>
+        </svg>
+        <p class="caption">CONCEPTUAL, SANITIZED WORKFLOW</p>
+      </div>
+
+      <h2>Outcome</h2>
+      <p>
+        The workflow produced 12 consecutive weekly reports, built a 127-entry structured history,
+        and identified 18 individually verified opportunities in its most recent audited report.
+        This demonstrates continuity, filtering, and validation in one private workflow. It does
+        not demonstrate commercial customer adoption or guaranteed job placements.
+      </p>
+
+      <h2>What I would improve</h2>
+      <p>
+        Add stronger health checks, an exception queue for blocked sources, structured retry
+        policy, per-source error rates, and a lightweight "review needed" state for uncertain
+        findings.
+      </p>
+
+      <div class="limits">
+        <h3>Limits and disclosure</h3>
+        <p>
+          Private single-beneficiary workflow operated on internal infrastructure. Beneficiary
+          identity, real contact data, private reports, and scraped material are not published.
+        </p>
+      </div>
+
+      <EvidencePanel />
+    </div>
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="/work/ai-agent-operations/">← Previous: Making multi-agent work accountable</a>
+      <a href="/work/research-validation/">Next: Designing research to reject weak conclusions →</a>
+    </nav>
+  </div>
+
+  <ContactCTA />
+</BaseLayout>

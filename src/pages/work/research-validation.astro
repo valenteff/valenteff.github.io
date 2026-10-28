@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyHeader from '../../components/CaseStudyHeader.astro';
+import EvidencePanel from '../../components/EvidencePanel.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+
+const facts = [
+  { num: '1.74%', lbl: 'Observed uplift against the preregistered advancement gate' },
+  { num: '5%', lbl: 'Preregistered advancement gate — not met' },
+  { num: 'SHA-256', lbl: 'Protocol and input freeze for reproducibility' },
+  { num: '0', lbl: 'Strategies advanced — the honest outcome' },
+];
+---
+
+<BaseLayout
+  title="Designing research to reject weak conclusions — Fabio Valente"
+  description="Case study: a preregistered, independently reviewed validation workflow for a trading experiment that ended in an auditable no-advance decision."
+>
+  <CaseStudyHeader
+    num="03"
+    title="Designing research to reject weak conclusions"
+    status="VALIDATION & QA / AUDITED, INCONCLUSIVE"
+    lead="A trustworthy research pipeline needs to reject attractive results when the evidence is not strong enough. I specified validation gates and independent review for a data-driven trading experiment, and the final decision was not to advance it."
+  >
+    <div class="facts-row">
+      {facts.map((f) => (
+        <div class="fact">
+          <div class="num" style="font-size:24px;">{f.num}</div>
+          <div class="lbl">{f.lbl}</div>
+        </div>
+      ))}
+    </div>
+  </CaseStudyHeader>
+
+  <div class="container case-body">
+    <div class="prose">
+      <h2>Problem</h2>
+      <p>
+        Exploratory strategies can appear promising because of look-ahead, cherry-picking, data
+        leakage, parameter selection, or inconsistent reruns. Here, the requirement was an
+        auditable process with a credible decision, not a favorable backtest.
+      </p>
+
+      <h2>My role</h2>
+      <p>
+        I specified research requirements and acceptance criteria, requested protocol freezing and
+        independent audit, reviewed findings, and approved the no-advance decision. AI agents built
+        and operated the supporting analysis engines; this is a case about experimental governance
+        and testing, not independently authored quantitative software or realized trading profits.
+      </p>
+
+      <h2>Process and guardrails</h2>
+      <ol>
+        <li>Define the hypothesis and preregister advancement criteria.</li>
+        <li>Freeze protocol and inputs with SHA-256 hashes to aid reproducibility.</li>
+        <li>Apply chronological development, validation, and evaluation splits.</li>
+        <li>Execute experiments with recorded settings and results.</li>
+        <li>Use separate reviewers for reproducibility, look-ahead, and potential artifacts.</li>
+        <li>Compare results to the stated criteria; reject or hold without moving goalposts.</li>
+      </ol>
+
+      <h2>A process that can say no</h2>
+
+      <div class="diagram-panel">
+        <svg viewBox="0 0 680 190" role="img" aria-label="Validation timeline: develop, validate, evaluate with chronological splits, independent audit, and a no-advance decision. A textual comparison shows observed uplift of 1.74 percent versus a 5 percent gate.">
+          <defs>
+            <marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#75D6C4"></path>
+            </marker>
+          </defs>
+          <style>
+            .n3 { fill:#17222E; stroke:#354658; }
+            .r3 { fill:#2a1f14; stroke:#D5B989; }
+            .t3 { fill:#EAF0F4; font:600 13px Manrope,sans-serif; }
+            .s3 { fill:#8193A3; font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.06em; }
+            .a3 { stroke:#75D6C4; stroke-width:1.5; fill:none; }
+            .gate3 { fill:#D5B989; font:700 15px 'IBM Plex Mono',monospace; }
+          </style>
+          <rect class="n3" x="10" y="30" width="100" height="56" rx="8"></rect>
+          <text class="t3" x="60" y="53" text-anchor="middle">Develop</text>
+          <text class="s3" x="60" y="70" text-anchor="middle">EARLY SPLIT</text>
+          <path class="a3" d="M110,58 L128,58" marker-end="url(#arr3)"></path>
+
+          <rect class="n3" x="130" y="30" width="100" height="56" rx="8"></rect>
+          <text class="t3" x="180" y="53" text-anchor="middle">Validate</text>
+          <text class="s3" x="180" y="70" text-anchor="middle">LATER SPLIT</text>
+          <path class="a3" d="M230,58 L248,58" marker-end="url(#arr3)"></path>
+
+          <rect class="n3" x="250" y="30" width="100" height="56" rx="8"></rect>
+          <text class="t3" x="300" y="53" text-anchor="middle">Evaluate</text>
+          <text class="s3" x="300" y="70" text-anchor="middle">HELD-OUT</text>
+          <path class="a3" d="M350,58 L368,58" marker-end="url(#arr3)"></path>
+
+          <rect class="n3" x="370" y="30" width="130" height="56" rx="8"></rect>
+          <text class="t3" x="435" y="53" text-anchor="middle">Independent audit</text>
+          <text class="s3" x="435" y="70" text-anchor="middle">SEPARATE REVIEWERS</text>
+          <path class="a3" d="M500,58 L518,58" marker-end="url(#arr3)"></path>
+
+          <rect class="r3" x="520" y="24" width="150" height="68" rx="8"></rect>
+          <text class="t3" x="595" y="50" text-anchor="middle" fill="#E4CD9E">DECISION</text>
+          <text class="s3" x="595" y="70" text-anchor="middle" fill="#E4CD9E">INCONCLUSIVE / NO ADVANCE</text>
+
+          <line x1="60" y1="130" x2="620" y2="130" stroke="#263341" stroke-width="1"></line>
+          <text class="s3" x="60" y="152">OBSERVED UPLIFT</text>
+          <text class="gate3" x="60" y="176">1.74%</text>
+          <line x1="480" y1="136" x2="480" y2="182" stroke="#D5B989" stroke-width="2"></line>
+          <text class="s3" x="500" y="152">PREREGISTERED GATE</text>
+          <text class="gate3" x="500" y="176">5%</text>
+          <text class="s3" x="300" y="186" text-anchor="middle">GATE NOT MET → DO NOT ADVANCE (TEXTUAL LABELS — NOT A PERFORMANCE CHART)</text>
+        </svg>
+        <p class="caption">CONCEPTUAL, SANITIZED WORKFLOW</p>
+      </div>
+
+      <h2>Observed result</h2>
+      <p>
+        The reviewed experiment reported <strong>1.74% uplift against a preregistered 5%
+        advancement gate</strong>, so the decision was <strong>INCONCLUSIVE / NO ADVANCE</strong>.
+        Independent review accepted that adverse conclusion with limitations. The useful output was
+        a documented, defensible decision—not evidence of profitable live trading.
+      </p>
+
+      <h2>Related research practice</h2>
+      <p>
+        In related trading research, I coordinate backtesting, walk-forward analysis, Monte Carlo
+        assessment, and risk/robustness reviews. These are research methods and validation
+        workflows—not claims of independently profitable strategies.
+      </p>
+
+      <div class="limits">
+        <h3>Limitations</h3>
+        <p>
+          This work is not a verified investable strategy, a live-trading product, or proof of
+          profitable returns. Proprietary strategy rules, licensed data, account details, and any
+          chart implying a verified track record are deliberately omitted.
+        </p>
+      </div>
+
+      <EvidencePanel />
+    </div>
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="/work/research-automation/">← Previous: Turning recurring research into a verifiable workflow</a>
+      <a href="/work/engineering-operations/">Next: Coordinating high-stakes operational work →</a>
+    </nav>
+  </div>
+
+  <ContactCTA />
+</BaseLayout>

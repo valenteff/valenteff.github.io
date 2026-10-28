@@ -1,0 +1,19 @@
+---
+interface Stat { num: string; label: string; context: string; }
+const stats: Stat[] = [
+  { num: '21', label: 'Configured AI-agent roles', context: 'Across three private operations · Oct 2026 audit' },
+  { num: '12', label: 'Consecutive weekly reports', context: 'Automated research workflow · through 19 Oct 2026' },
+  { num: '48', label: 'People in a team led', context: 'Agricultural maintenance operation · São Martinho' },
+];
+---
+<section class="stats" aria-label="Selected facts">
+  <div class="container grid">
+    {stats.map((s) => (
+      <div class="stat">
+        <div class="num">{s.num}</div>
+        <div class="label">{s.label}</div>
+        <div class="context">{s.context}</div>
+      </div>
+    ))}
+  </div>
+</section>
