@@ -92,6 +92,8 @@
       linear-gradient(var(--text-secondary), var(--text-secondary)) bottom/100% 1.5px no-repeat;
   }
   .nav-toggle[open] summary { color: var(--accent); }
+  /* restore native details disclosure: hidden when closed */
+  .nav-toggle:not([open]) > .nav-mobile-list { display: none; }
   .nav-toggle .nav-mobile-list {
     list-style: none;
     margin: 0;
@@ -108,15 +110,19 @@
     border-bottom: 1px solid var(--border);
   }
   .nav-toggle .nav-mobile-list li:last-child a { border-bottom: none; color: var(--accent); font-weight: 600; }
-  /* make the open menu span the full header width */
-  .nav-toggle { position: static; }
+  /* open menu flows inline and pushes content down — full header width */
+  .nav-toggle { position: static; width: 100%; }
+  .nav-toggle summary { justify-content: flex-end; }
+  .nav-toggle[open] > summary { font-size: 0; }
+  .nav-toggle[open] > summary::before { margin-right: 8px; }
+  .nav-toggle[open] > summary::after { content: 'Close'; color: var(--accent); font-size: 15px; }
+  .site-header .inner { flex-wrap: wrap; }
   .nav-toggle .nav-mobile-list {
-    position: absolute;
-    left: 0; right: 0;
     background: var(--bg);
+    border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     padding: 8px 20px 18px;
-    z-index: 60;
+    width: 100%;
   }
   .site-header { position: relative; }
 }
@@ -181,6 +187,7 @@
   color: var(--text);
   line-height: 1.1;
   margin-top: 14px;
+  white-space: nowrap;
 }
 .stat .label { font-weight: 600; margin-top: 6px; font-size: 15.5px; }
 .stat .context { color: var(--text-muted); font-size: 13.5px; margin-top: 4px; line-height: 1.5; }
@@ -389,7 +396,19 @@ section.block.tight { padding: 48px 0; }
   border-radius: 6px;
   padding: 28px 22px;
   margin: 28px 0;
+  overflow-x: auto;
 }
+.diagram-panel img { max-width: none; }
+@media (min-width: 861px) {
+  .diagram-panel img { max-width: 100%; height: auto; }
+}
+.diagram-panel a { color: var(--accent); }
+/* diagram allowed to pan horizontally on very small screens instead of shrinking to illegibility */
+@media (max-width: 480px) {
+  .diagram-panel img { width: 480px; }
+  .diagram-panel .scroll-hint { display: block; }
+}
+.diagram-panel .scroll-hint { display: none; font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 6px; }
 .diagram-panel .caption {
   text-align: center;
   color: var(--text-muted);

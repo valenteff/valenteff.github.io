@@ -42,3 +42,9 @@ import { site, nav } from '../content/site';
     </details>
   </div>
 </header>
+<script>
+  // Close the mobile <details> menu after a link is chosen (native details stays open).
+  document.querySelectorAll('.nav-toggle .nav-mobile-list a').forEach((a) => {
+    a.addEventListener('click', () => { document.querySelector('details.nav-toggle').open = false; });
+  });
+</script>
